@@ -173,3 +173,35 @@ elif int(new_score) >= 40 and int(new_score) <= 50:
     print(f"Your score is {new_score}, you are alright together")
 else:
     print(f"Your score is {new_score}")
+
+# Alice in Wonderland Adventure
+print('''                   .'\   /`.
+                 .'.-.`-'.-.`.
+            ..._:   .-. .-.   :_...
+          .'    '-.(o ) (o ).-'    `.
+         :  _    _ _`~(_)~`_ _    _  :
+        :  /:   ' .-=_   _=-. `   ;\  :
+        :   :|-.._  '     `  _..-|:   :
+         :   `:| |`:-:-.-:-:'| |:'   :
+          `.   `.| | | | | | |.'   .'
+            `.   `-:_| | |_:-'   .'
+         jgs  `-._   ````    _.-'
+                  ``-------''
+                  ''')
+print("Welcome to the Alice in Wonderland Adventure")
+print("Your mission is to escape the Wonderland and resque the helpless Bunny from the Emperor! \nAfter a few minutes of walking you meet a soldier who ask's about your ID")
+
+first_answer = input("Do you want to discuss that you don't have an ID or do you want try to escape with running? Please type \"discuss\" or \"escape\"!: ").lower()
+if first_answer == "discuss":
+    print("The soldier does not accept the answer and take`s you to the emperor's castle")
+    second_answer = input("In the castle you've been locked in a cell with the bunny right next to you. \nYou two are talking for quite a while and the bunny suggests you to overwhelm the guard protecting the cell. \nDo you want to overwhelm or wait for sunrise? Please type \"overwhelm\"or \"wait\"!: ").lower()
+    if second_answer == "overwhelm":
+        print("You've successfully overwhelmed the guard and escaped the cell with the bunny")
+    elif second_answer == "wait":
+        print("Game over: Waiting didn't helped you by finding a solution. The bunny died!")
+    else:
+        print("Game over: You didn't choose one of the given answers!")
+elif first_answer == "escape":
+    print("Game over: You couldn't escape the soldier and died. Please try again")
+else:
+    print("Game over: You didn't choose one of the given answers!")
