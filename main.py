@@ -308,3 +308,35 @@ elif your_choice == 2:
         print(f"Computer chose:\n {rock}\nYou lose!")
 else:
     print("Please input the right number")
+
+# Day 5
+
+# Average Height program
+student_heights = input("Input a list of student heights ").split()
+for n in range(0, len(student_heights)):
+    student_heights[n] = int(student_heights[n])
+print(student_heights)
+
+number_of_students = 0
+overall_height = 0
+for height in student_heights:
+    overall_height += height
+    number_of_students += 1
+average = overall_height / number_of_students
+rounded_average = round(average)
+print(f"The average is {rounded_average}")
+
+# Highest Score program
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+    student_scores[n] = int(student_scores[n])
+print(student_scores)
+
+highest_score = 0
+for score in student_scores:
+    if score > highest_score:
+        highest_score = score
+print(highest_score)
+
+# min() and max() Functions are the easy way
+        
