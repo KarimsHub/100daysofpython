@@ -205,3 +205,106 @@ elif first_answer == "escape":
     print("Game over: You couldn't escape the soldier and died. Please try again")
 else:
     print("Game over: You didn't choose one of the given answers!")
+
+# Day 4
+
+# Heads or Tails program
+import random
+
+random_number = random.randint(0, 1)
+if random_number == 0:
+    print("Tails")
+else:
+    print("Heads")
+
+# Banker Roulette program
+import random
+
+names_string = input("Give me everybody's names, seperated by a comma: ")
+names = names_string.split(", ")
+#number_of_names = (len(names) -1)
+random_number = random.randint(0, (len(names) -1))
+print(f"{names[random_number]} is going to buy the meal today!")
+
+# nested list
+# fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+# vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+# dirty_dozen = [fruits, vegetables]
+
+# Treasure Map Program
+row1 = ["😉","😉","😉"]
+row2 = ["😉","😉","😉"]
+row3 = ["😉","😉","😉"]
+
+map = [row1, row2, row3]
+position = input("Where do you want to put the treasure? ")
+column_number = (position[0])
+row_number = (position[1])
+
+map[int(row_number) -1][int(column_number) -1] = "x"
+print(f"{row1}\n{row2}\n{row3}")
+
+# Rock paper scissors game Program
+
+import random
+# Rock
+rock = """
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+"""
+
+# Paper
+paper = """
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+"""
+
+# Scissors
+scissors = """
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+"""
+
+your_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+computer_choice = random.randint(0,2)
+# rock wins against scissors
+# scissors win against paper
+# paper wins against rock
+if your_choice == 0:
+    print(rock)
+    if computer_choice == 2:
+        print(f"Computer chose:\n {scissors}\nYou win!")
+    elif computer_choice == 0:
+        print(f"Computer chose:\n {rock}\nDraw!")
+    else:
+        print(f"Computer chose:\n {paper}\nYou lose!")
+elif your_choice == 1:
+    print(paper)
+    if computer_choice == 0:
+        print(f"Computer chose:\n {rock}\nYou win!")
+    elif computer_choice == 1:
+        print(f"Computer chose:\n {paper}\nDraw!")
+    else:
+        print(f"Computer chose:\n {scissors}\nYou lose!")
+elif your_choice == 2:
+    print(scissors)
+    if computer_choice == 1:
+        print(f"Computer chose:\n {paper}\nYou win!")
+    elif computer_choice == 2:
+        print(f"Computer chose:\n {scissors}\nDraw!")
+    else:
+        print(f"Computer chose:\n {rock}\nYou lose!")
+else:
+    print("Please input the right number")
