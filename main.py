@@ -339,4 +339,316 @@ for score in student_scores:
 print(highest_score)
 
 # min() and max() Functions are the easy way
+
+# For Loop with Range
+for number in range(1, 10): # going from 1 - 9 (not including 10)
+    print(number)
+
+# Adding Events:
+
+total = 0
+for number in range(2, 101, 2):
+    total += number
+print(total)
+
+# FizzBuzz program
+for n in range(1, 101):
+    if n % 3 == 0 and n % 5 == 0:
+        print("FizzBuzz")
+    elif n % 3 == 0:
+        print("Fizz")
+    elif n % 5 == 0:
+        print("Buzz")
+    else:
+        print(n)
+
+# Project Password Generator
+import random
+from typing import final
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+lenght = int(input("How many letters would you like in your password?\n"))
+nr_numbers = int(input("How many numbers would you like in your password?\n"))
+nr_symbols = int(input("How many symbols would you like in your password?\n"))
+
+
+
+# easy way
+
+password = ""
+
+for letter in range(0, lenght):
+    random_letter = random.choice(letters)
+    password += random_letter
+for letter in range(0, nr_symbols):
+    random_numbers = random.choice(numbers)
+    password += random_numbers
+for letter in range(0, nr_symbols):
+    random_symbol = random.choice(symbols)
+    password += random_symbol
+
+print(password)
+
+# hard way with more randomization
+
+password_list = []
+
+for letter in range(0, lenght):
+    random_letter = random.choice(letters)
+    password_list.append(random_letter)
+for letter in range(0, nr_symbols):
+    random_numbers = random.choice(numbers)
+    password_list.append(random_numbers)
+for letter in range(0, nr_symbols):
+    random_symbol = random.choice(symbols)
+    password_list.append(random_symbol)
+
+random.shuffle(password_list) #shuffling the items in the list
+
+print(password_list)
+
+# changing the list into string
+final_pw = ""
+for char in password_list:
+    final_pw += char
+print(final_pw)
+
+
+# Day 6
+
+# Reeborgs World Hordle 1
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def one_round():
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+for round in range(0,6):
+    one_round()
+
+# Reeborgs World Hordle 2
+while not at_goal():
+    one_round()
+
+# Reeborgs World Hordle 3
+while not at_goal():
+    if wall_in_front(): #removed move() from one_round() function
+        turn_left()
+        move()
+        turn_right()
+        move()
+        turn_right()
+        move()
+        turn_left()
+    elif front_is_clear():
+        move()
+
+# Reeborgs World Hordle 4
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def one_round():
+    turn_left()
+    while wall_on_right():
+        move()
+  
+    turn_right()
+    move()
+    turn_right()
+    
+    while front_is_clear():
+        move()
+    turn_left()
         
+while not at_goal():
+    if wall_in_front():
+        one_round()
+    else: 
+        move()
+
+# Reeborgs World Maze
+while not at_goal():
+    if right_is_clear():
+        turn_right()
+        move()
+    elif front_is_clear():
+        move()
+    else:
+        turn_left()
+
+# Day 7
+
+# hangman program
+
+import random
+import hangmanart
+import hangmanwords
+
+
+print(hangmanart.logo)
+chosen_word = random.choice(hangmanwords.word_list)
+word_lenght = len(chosen_word)
+display = []
+
+running = True
+for char in chosen_word:
+    display += "_"
+print(f"{' '.join(display)}")
+
+lives = 6
+letter_list = []
+
+while running:
+    # print(f"Psst , the solution is {chosen_word}") # for debugging purpose
+
+
+    guess = input("Guess a letter: ").lower()
+    if guess in letter_list:
+        print("You've already guessed that letter")
+    else:
+        letter_list.append(guess)
+        for position in range(word_lenght):
+            letter = chosen_word[position]
+            if letter == guess:
+                display[position] = letter
+
+        if guess not in chosen_word:
+            lives -= 1
+            print(f"You guessed letter {guess}, that's not in the word. You lose a life.")
+            print(hangmanart.stages[lives])  
+            if lives == 0:
+                running = False
+                print("You lose!")
+        print(f"{' '.join(display)}")
+
+        if not "_" in display:
+            print("You won!")
+            running = False
+
+# Day 8
+
+#function that allows for input
+
+def greet(name):
+    print(f"Hello {name}.")
+greet("Karim")
+
+
+#functions with more than 1 input
+
+def greet_with(name, location):
+    print(f"Hello {name}")
+    print(f"What is it like in {location}")
+
+#greet_with("Karim", "Barcelona")
+
+greet_with(name = "Karim", location = "Barcelona")
+
+
+# Area calculation program
+test_h = int(input("Height of wall: "))
+test_w = int(input("Width of wall: "))
+
+def area_calc(height, width, coverage=5):
+    number_of_cans = (height * width) / coverage
+    print(round(number_of_cans))
+
+area_calc(height=test_h,width=test_w)
+
+# prime number program
+n = int(input("Check this number: "))
+
+def prime_checker(number):
+    is_prime = True
+    for num in range(2, number):
+        if number % num == 0:
+            is_prime = False
+    if is_prime:
+        print(f"The number {number} is a prime number")
+    else:
+        print(f"The number {number} is not a prime number")
+
+
+prime_checker(number=n)
+
+
+
+# Ceasar cipher program
+
+import hangmanwords
+
+alphabet = hangmanwords.alphabet
+
+direction = input("Type 'encode' to encrypt or type 'decode' to decrypt:\n")
+text = input("Type in your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+
+def encrypt(plain_text, shift_amount):
+    encoded_word = ""
+    for letter in text:
+        index = alphabet.index(letter)
+        calc_index = index + shift
+        if calc_index > 25:
+            oversize = calc_index - 25
+            new_letter = alphabet[oversize -1]
+            encoded_word += new_letter
+        else:
+            new_letter = alphabet[calc_index]
+            encoded_word += new_letter
+    print(f"The encoded_word is {encoded_word}")
+
+encrypt(plain_text=text, shift_amount=shift)
+
+def decrypt(plain_text, shift_amount):
+    decoded_word = ""
+    for letter in text:
+        index = alphabet.index(letter)
+        calc_index = index - shift
+        # if calc_index < 0:
+        #     oversize = calc_index - 25
+        #     new_letter = alphabet[oversize -1]
+        #     decoded_word += new_letter
+        new_letter = alphabet[calc_index]
+        decoded_word += new_letter
+    print(f"The decoded_word is {decoded_word}")
+
+decrypt(plain_text=text, shift_amount=shift)
+
+def ceasar(direction, plaintext, shift_amount):
+    encoded_word = ""
+    for letter in text:
+        index = alphabet.index(letter)
+        if direction == "encode":  #for encryption the following code:
+            calc_index = index + shift
+            if calc_index > 25:
+                oversize = calc_index - 25
+                new_letter = alphabet[oversize -1]
+                encoded_word += new_letter
+            else:
+                new_letter = alphabet[calc_index]
+                encoded_word += new_letter
+        elif direction == "decode":
+            calc_index = index - shift
+            new_letter = alphabet[calc_index]
+            encoded_word += new_letter          
+        else:
+            print("Please type in 'encode or 'decode!")
+    print(f"The word is {encoded_word}")
+
+ceasar(direction, plaintext=text, shift_amount=shift)
