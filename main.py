@@ -1,634 +1,630 @@
-# Day 1: Creating Band Name Generator
-print("Welcome to the Band Name Generator.")
-cityname = input("What's name of the city you grew up in? \n")
-petsname = input("What's your pet's name? \n")
-print("Your band name could be " + cityname + " " + petsname)
+# # Day 1: Creating Band Name Generator
+# print("Welcome to the Band Name Generator.")
+# cityname = input("What's name of the city you grew up in? \n")
+# petsname = input("What's your pet's name? \n")
+# print("Your band name could be " + cityname + " " + petsname)
 
-# Day 2:
-BMI Calculator:
-height = input("What is your height in m? ")
-weight = input("What is your weight in kg? ")
-bmi =  float(weight) / (float(height)**2)
-bmi_rounded = round(bmi)
-print(bmi_rounded)
+# # Day 2:
+# BMI Calculator:
+# height = input("What is your height in m? ")
+# weight = input("What is your weight in kg? ")
+# bmi =  float(weight) / (float(height)**2)
+# bmi_rounded = round(bmi)
+# print(bmi_rounded)
 
-# print(type(6 // 2))
-# // = always results an integer
-# score = score + 1 == score +=1
+# # print(type(6 // 2))
+# # // = always results an integer
+# # score = score + 1 == score +=1
 
-# f -strings
-# score = 0
-# height = 1.8
-# isWinning = True
-# print(f"Your score is {score}, your height is {height}, you are winning is {isWinning}")
+# # f -strings
+# # score = 0
+# # height = 1.8
+# # isWinning = True
+# # print(f"Your score is {score}, your height is {height}, you are winning is {isWinning}")
 
-# Your life in weeks program
-age = input("What is your current age? ")
-years_remaining = 90 - int(age)
-months = int(years_remaining) * 12
-weeks = int(years_remaining) * 52
-days = int(years_remaining) * 365
+# # Your life in weeks program
+# age = input("What is your current age? ")
+# years_remaining = 90 - int(age)
+# months = int(years_remaining) * 12
+# weeks = int(years_remaining) * 52
+# days = int(years_remaining) * 365
 
-print(f"You have {days} days, {weeks} weeks, and {months} months left.")
+# print(f"You have {days} days, {weeks} weeks, and {months} months left.")
 
-# Tip calculator
-print("Welcome to the tip calculator.")
-total_bill = float(input("What was the total bill? "))
+# # Tip calculator
+# print("Welcome to the tip calculator.")
+# total_bill = float(input("What was the total bill? "))
 
-percentage_bill = int(input("What percentage tip would you like to give? 10, 12, or 15? "))
+# percentage_bill = int(input("What percentage tip would you like to give? 10, 12, or 15? "))
 
-split_in_people = int(input("How many people to split the bill? "))
+# split_in_people = int(input("How many people to split the bill? "))
 
-first_result = ((total_bill / split_in_people) / 100) * percentage_bill
-second_result = ((total_bill / split_in_people) + first_result)
-rounded_second_result = round(second_result, 2)
+# first_result = ((total_bill / split_in_people) / 100) * percentage_bill
+# second_result = ((total_bill / split_in_people) + first_result)
+# rounded_second_result = round(second_result, 2)
 
-print(f"Each person should pay: €{rounded_second_result}")
+# print(f"Each person should pay: €{rounded_second_result}")
 
-# Day 3:
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-bill = 0
+# # Day 3:
+# print("Welcome to the rollercoaster!")
+# height = int(input("What is your height in cm? "))
+# bill = 0
 
-if height >= 120:
-    print("you can ride the rollercoaster!")
-    age = int(input("What are your age? "))
+# if height >= 120:
+#     print("you can ride the rollercoaster!")
+#     age = int(input("What are your age? "))
 
-    if age < 12:
-        bill = 5
-        print("child tickets are 5€")
-    elif age <= 18:
-        bill = 7
-        print("Youth tickets are 7€")
-    else:
-        bill = 12
-        print("Adult tickets are 12€")
-    wants_photo = input("Do you want a photo taken? Y or N. ")
-    if wants_photo == "Y":
-        # Add 3€
-        bill += 3
+#     if age < 12:
+#         bill = 5
+#         print("child tickets are 5€")
+#     elif age <= 18:
+#         bill = 7
+#         print("Youth tickets are 7€")
+#     else:
+#         bill = 12
+#         print("Adult tickets are 12€")
+#     wants_photo = input("Do you want a photo taken? Y or N. ")
+#     if wants_photo == "Y":
+#         # Add 3€
+#         bill += 3
     
-    print(f"Your final bill is {bill}")
-
-
-else:
-    print("you can't ride the rollercoaster!")
-
-# BMI Calculator 2.0:
-
-height = float(input("enter your height in m: "))
-weight = float(input("enter your weight in kg: "))
-
-bmi = weight / (height ** 2)
-bmi_rounded = round(bmi)
-
-if bmi_rounded < 18.5:
-    print(f"Your BMI is {bmi_rounded}, you are underweight")
-elif bmi_rounded < 25:
-    print(f"Your BMI is {bmi_rounded}, you are normal weight")
-elif bmi_rounded < 30:
-    print(f"Your BMI is {bmi_rounded}, you are slightly overweight")
-elif bmi_rounded < 35:
-    print(f"Your BMI is {bmi_rounded}, you are obese")
-else:
-    print(f"Your BMI is {bmi_rounded}, you are clinically obese")
-
-# Leap Year Program
-year = int(input("Which year do you want to check?"))
-
-if year % 4 == 0:
-    if year % 100 == 0 and year % 400 != 0:
-        print("This year is not a Leap year")
-    else:
-        print("This year is a Leap year")    
-else:
-    print("This year is not a leap year")
-
-# Pizza Order Program
-print("Welcome to Python Pizza Deliveries!")
-size = input("What size of pizza do you want? S, M, or L? ")
-add_pepperoni = input("Do you want pepperoni? Y or N? ")
-extra_cheese = input("Do you want some extra cheese? Y or N? ")
-bill = 0
-
-if size == "S":
-    bill = 15
-    if add_pepperoni == "Y":
-        bill += 2
-        if extra_cheese == "Y":
-            bill += 1
-            print(f"Your final bill is: {bill}")
-        else:
-           print(f"Your final bill is: {bill}") 
-    else:
-        print(f"Your final bill is: {bill}")
-elif size == "M":
-    bill = 20
-    if add_pepperoni == "Y":
-        bill += 3
-        if extra_cheese == "Y":
-            bill += 1
-            print(f"Your final bill is: {bill}")
-        else:
-           print(f"Your final bill is: {bill}") 
-    else:
-        print(f"Your final bill is: {bill}")
-elif size == "L":
-    bill = 25
-    if add_pepperoni == "Y":
-        bill += 3
-        if extra_cheese == "Y":
-            bill += 1
-            print(f"Your final bill is: {bill}")
-        else:
-           print(f"Your final bill is: {bill}") 
-    else:
-        print(f"Your final bill is: {bill}")
-else:
-    print("Please try again")
-
-# Love Calculator Program
-print("Welcome to the Love Calculator!")
-name1 = input("What is your name? \n")
-name2 = input("What is their name? \n")
-love_score = 0
-
-name1_lower_case = name1.lower()
-name2_lower_case = name2.lower()
-number_of_t = name1_lower_case.count("t") + name2_lower_case.count("t")
-number_of_r = name1_lower_case.count("r") + name2_lower_case.count("r")
-number_of_u = name1_lower_case.count("u") + name2_lower_case.count("u")
-number_of_e = name1_lower_case.count("e") + name2_lower_case.count("e")
-true_score = number_of_t + number_of_r + number_of_u + number_of_e
-
-number_of_l = name1_lower_case.count("l") + name2_lower_case.count("l")
-number_of_o = name1_lower_case.count("o") + name2_lower_case.count("o")
-number_of_v = name1_lower_case.count("v") + name2_lower_case.count("v")
-love_score = number_of_l + number_of_o + number_of_v + number_of_e
-new_score = str(true_score) + str(love_score)
-
-if int(new_score) < 10 or int(new_score) > 90:
-    print(f"Your score is {new_score}, you go together like coke and mentos")
-elif int(new_score) >= 40 and int(new_score) <= 50:
-    print(f"Your score is {new_score}, you are alright together")
-else:
-    print(f"Your score is {new_score}")
-
-# Alice in Wonderland Adventure
-print('''                   .'\   /`.
-                 .'.-.`-'.-.`.
-            ..._:   .-. .-.   :_...
-          .'    '-.(o ) (o ).-'    `.
-         :  _    _ _`~(_)~`_ _    _  :
-        :  /:   ' .-=_   _=-. `   ;\  :
-        :   :|-.._  '     `  _..-|:   :
-         :   `:| |`:-:-.-:-:'| |:'   :
-          `.   `.| | | | | | |.'   .'
-            `.   `-:_| | |_:-'   .'
-         jgs  `-._   ````    _.-'
-                  ``-------''
-                  ''')
-print("Welcome to the Alice in Wonderland Adventure")
-print("Your mission is to escape the Wonderland and resque the helpless Bunny from the Emperor! \nAfter a few minutes of walking you meet a soldier who ask's about your ID")
-
-first_answer = input("Do you want to discuss that you don't have an ID or do you want try to escape with running? Please type \"discuss\" or \"escape\"!: ").lower()
-if first_answer == "discuss":
-    print("The soldier does not accept the answer and take`s you to the emperor's castle")
-    second_answer = input("In the castle you've been locked in a cell with the bunny right next to you. \nYou two are talking for quite a while and the bunny suggests you to overwhelm the guard protecting the cell. \nDo you want to overwhelm or wait for sunrise? Please type \"overwhelm\"or \"wait\"!: ").lower()
-    if second_answer == "overwhelm":
-        print("You've successfully overwhelmed the guard and escaped the cell with the bunny")
-    elif second_answer == "wait":
-        print("Game over: Waiting didn't helped you by finding a solution. The bunny died!")
-    else:
-        print("Game over: You didn't choose one of the given answers!")
-elif first_answer == "escape":
-    print("Game over: You couldn't escape the soldier and died. Please try again")
-else:
-    print("Game over: You didn't choose one of the given answers!")
-
-# Day 4
-
-# Heads or Tails program
-import random
-
-random_number = random.randint(0, 1)
-if random_number == 0:
-    print("Tails")
-else:
-    print("Heads")
-
-# Banker Roulette program
-import random
-
-names_string = input("Give me everybody's names, seperated by a comma: ")
-names = names_string.split(", ")
-#number_of_names = (len(names) -1)
-random_number = random.randint(0, (len(names) -1))
-print(f"{names[random_number]} is going to buy the meal today!")
-
-# nested list
-# fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
-# vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
-# dirty_dozen = [fruits, vegetables]
-
-# Treasure Map Program
-row1 = ["😉","😉","😉"]
-row2 = ["😉","😉","😉"]
-row3 = ["😉","😉","😉"]
-
-map = [row1, row2, row3]
-position = input("Where do you want to put the treasure? ")
-column_number = (position[0])
-row_number = (position[1])
-
-map[int(row_number) -1][int(column_number) -1] = "x"
-print(f"{row1}\n{row2}\n{row3}")
-
-# Rock paper scissors game Program
-
-import random
-# Rock
-rock = """
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-"""
-
-# Paper
-paper = """
-     _______
----'    ____)____
-           ______)
-          _______)
-         _______)
----.__________)
-"""
-
-# Scissors
-scissors = """
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-"""
-
-your_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
-computer_choice = random.randint(0,2)
-# rock wins against scissors
-# scissors win against paper
-# paper wins against rock
-if your_choice == 0:
-    print(rock)
-    if computer_choice == 2:
-        print(f"Computer chose:\n {scissors}\nYou win!")
-    elif computer_choice == 0:
-        print(f"Computer chose:\n {rock}\nDraw!")
-    else:
-        print(f"Computer chose:\n {paper}\nYou lose!")
-elif your_choice == 1:
-    print(paper)
-    if computer_choice == 0:
-        print(f"Computer chose:\n {rock}\nYou win!")
-    elif computer_choice == 1:
-        print(f"Computer chose:\n {paper}\nDraw!")
-    else:
-        print(f"Computer chose:\n {scissors}\nYou lose!")
-elif your_choice == 2:
-    print(scissors)
-    if computer_choice == 1:
-        print(f"Computer chose:\n {paper}\nYou win!")
-    elif computer_choice == 2:
-        print(f"Computer chose:\n {scissors}\nDraw!")
-    else:
-        print(f"Computer chose:\n {rock}\nYou lose!")
-else:
-    print("Please input the right number")
-
-# Day 5
-
-# Average Height program
-student_heights = input("Input a list of student heights ").split()
-for n in range(0, len(student_heights)):
-    student_heights[n] = int(student_heights[n])
-print(student_heights)
-
-number_of_students = 0
-overall_height = 0
-for height in student_heights:
-    overall_height += height
-    number_of_students += 1
-average = overall_height / number_of_students
-rounded_average = round(average)
-print(f"The average is {rounded_average}")
-
-# Highest Score program
-student_scores = input("Input a list of student scores ").split()
-for n in range(0, len(student_scores)):
-    student_scores[n] = int(student_scores[n])
-print(student_scores)
-
-highest_score = 0
-for score in student_scores:
-    if score > highest_score:
-        highest_score = score
-print(highest_score)
-
-# min() and max() Functions are the easy way
-
-# For Loop with Range
-for number in range(1, 10): # going from 1 - 9 (not including 10)
-    print(number)
-
-# Adding Events:
-
-total = 0
-for number in range(2, 101, 2):
-    total += number
-print(total)
-
-# FizzBuzz program
-for n in range(1, 101):
-    if n % 3 == 0 and n % 5 == 0:
-        print("FizzBuzz")
-    elif n % 3 == 0:
-        print("Fizz")
-    elif n % 5 == 0:
-        print("Buzz")
-    else:
-        print(n)
-
-# Project Password Generator
-import random
-from typing import final
-
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-
-print("Welcome to the PyPassword Generator!")
-lenght = int(input("How many letters would you like in your password?\n"))
-nr_numbers = int(input("How many numbers would you like in your password?\n"))
-nr_symbols = int(input("How many symbols would you like in your password?\n"))
-
-
-
-# easy way
-
-password = ""
-
-for letter in range(0, lenght):
-    random_letter = random.choice(letters)
-    password += random_letter
-for letter in range(0, nr_symbols):
-    random_numbers = random.choice(numbers)
-    password += random_numbers
-for letter in range(0, nr_symbols):
-    random_symbol = random.choice(symbols)
-    password += random_symbol
-
-print(password)
-
-# hard way with more randomization
-
-password_list = []
-
-for letter in range(0, lenght):
-    random_letter = random.choice(letters)
-    password_list.append(random_letter)
-for letter in range(0, nr_symbols):
-    random_numbers = random.choice(numbers)
-    password_list.append(random_numbers)
-for letter in range(0, nr_symbols):
-    random_symbol = random.choice(symbols)
-    password_list.append(random_symbol)
-
-random.shuffle(password_list) #shuffling the items in the list
-
-print(password_list)
-
-# changing the list into string
-final_pw = ""
-for char in password_list:
-    final_pw += char
-print(final_pw)
-
-
-# Day 6
-
-# Reeborgs World Hordle 1
-def turn_right():
-    turn_left()
-    turn_left()
-    turn_left()
-
-def one_round():
-    move()
-    turn_left()
-    move()
-    turn_right()
-    move()
-    turn_right()
-    move()
-    turn_left()
-
-for round in range(0,6):
-    one_round()
-
-# Reeborgs World Hordle 2
-while not at_goal():
-    one_round()
-
-# Reeborgs World Hordle 3
-while not at_goal():
-    if wall_in_front(): #removed move() from one_round() function
-        turn_left()
-        move()
-        turn_right()
-        move()
-        turn_right()
-        move()
-        turn_left()
-    elif front_is_clear():
-        move()
-
-# Reeborgs World Hordle 4
-def turn_right():
-    turn_left()
-    turn_left()
-    turn_left()
-
-def one_round():
-    turn_left()
-    while wall_on_right():
-        move()
+#     print(f"Your final bill is {bill}")
+
+
+# else:
+#     print("you can't ride the rollercoaster!")
+
+# # BMI Calculator 2.0:
+
+# height = float(input("enter your height in m: "))
+# weight = float(input("enter your weight in kg: "))
+
+# bmi = weight / (height ** 2)
+# bmi_rounded = round(bmi)
+
+# if bmi_rounded < 18.5:
+#     print(f"Your BMI is {bmi_rounded}, you are underweight")
+# elif bmi_rounded < 25:
+#     print(f"Your BMI is {bmi_rounded}, you are normal weight")
+# elif bmi_rounded < 30:
+#     print(f"Your BMI is {bmi_rounded}, you are slightly overweight")
+# elif bmi_rounded < 35:
+#     print(f"Your BMI is {bmi_rounded}, you are obese")
+# else:
+#     print(f"Your BMI is {bmi_rounded}, you are clinically obese")
+
+# # Leap Year Program
+# year = int(input("Which year do you want to check?"))
+
+# if year % 4 == 0:
+#     if year % 100 == 0 and year % 400 != 0:
+#         print("This year is not a Leap year")
+#     else:
+#         print("This year is a Leap year")    
+# else:
+#     print("This year is not a leap year")
+
+# # Pizza Order Program
+# print("Welcome to Python Pizza Deliveries!")
+# size = input("What size of pizza do you want? S, M, or L? ")
+# add_pepperoni = input("Do you want pepperoni? Y or N? ")
+# extra_cheese = input("Do you want some extra cheese? Y or N? ")
+# bill = 0
+
+# if size == "S":
+#     bill = 15
+#     if add_pepperoni == "Y":
+#         bill += 2
+#         if extra_cheese == "Y":
+#             bill += 1
+#             print(f"Your final bill is: {bill}")
+#         else:
+#            print(f"Your final bill is: {bill}") 
+#     else:
+#         print(f"Your final bill is: {bill}")
+# elif size == "M":
+#     bill = 20
+#     if add_pepperoni == "Y":
+#         bill += 3
+#         if extra_cheese == "Y":
+#             bill += 1
+#             print(f"Your final bill is: {bill}")
+#         else:
+#            print(f"Your final bill is: {bill}") 
+#     else:
+#         print(f"Your final bill is: {bill}")
+# elif size == "L":
+#     bill = 25
+#     if add_pepperoni == "Y":
+#         bill += 3
+#         if extra_cheese == "Y":
+#             bill += 1
+#             print(f"Your final bill is: {bill}")
+#         else:
+#            print(f"Your final bill is: {bill}") 
+#     else:
+#         print(f"Your final bill is: {bill}")
+# else:
+#     print("Please try again")
+
+# # Love Calculator Program
+# print("Welcome to the Love Calculator!")
+# name1 = input("What is your name? \n")
+# name2 = input("What is their name? \n")
+# love_score = 0
+
+# name1_lower_case = name1.lower()
+# name2_lower_case = name2.lower()
+# number_of_t = name1_lower_case.count("t") + name2_lower_case.count("t")
+# number_of_r = name1_lower_case.count("r") + name2_lower_case.count("r")
+# number_of_u = name1_lower_case.count("u") + name2_lower_case.count("u")
+# number_of_e = name1_lower_case.count("e") + name2_lower_case.count("e")
+# true_score = number_of_t + number_of_r + number_of_u + number_of_e
+
+# number_of_l = name1_lower_case.count("l") + name2_lower_case.count("l")
+# number_of_o = name1_lower_case.count("o") + name2_lower_case.count("o")
+# number_of_v = name1_lower_case.count("v") + name2_lower_case.count("v")
+# love_score = number_of_l + number_of_o + number_of_v + number_of_e
+# new_score = str(true_score) + str(love_score)
+
+# if int(new_score) < 10 or int(new_score) > 90:
+#     print(f"Your score is {new_score}, you go together like coke and mentos")
+# elif int(new_score) >= 40 and int(new_score) <= 50:
+#     print(f"Your score is {new_score}, you are alright together")
+# else:
+#     print(f"Your score is {new_score}")
+
+# # Alice in Wonderland Adventure
+# print('''                   .'\   /`.
+#                  .'.-.`-'.-.`.
+#             ..._:   .-. .-.   :_...
+#           .'    '-.(o ) (o ).-'    `.
+#          :  _    _ _`~(_)~`_ _    _  :
+#         :  /:   ' .-=_   _=-. `   ;\  :
+#         :   :|-.._  '     `  _..-|:   :
+#          :   `:| |`:-:-.-:-:'| |:'   :
+#           `.   `.| | | | | | |.'   .'
+#             `.   `-:_| | |_:-'   .'
+#          jgs  `-._   ````    _.-'
+#                   ``-------''
+#                   ''')
+# print("Welcome to the Alice in Wonderland Adventure")
+# print("Your mission is to escape the Wonderland and resque the helpless Bunny from the Emperor! \nAfter a few minutes of walking you meet a soldier who ask's about your ID")
+
+# first_answer = input("Do you want to discuss that you don't have an ID or do you want try to escape with running? Please type \"discuss\" or \"escape\"!: ").lower()
+# if first_answer == "discuss":
+#     print("The soldier does not accept the answer and take`s you to the emperor's castle")
+#     second_answer = input("In the castle you've been locked in a cell with the bunny right next to you. \nYou two are talking for quite a while and the bunny suggests you to overwhelm the guard protecting the cell. \nDo you want to overwhelm or wait for sunrise? Please type \"overwhelm\"or \"wait\"!: ").lower()
+#     if second_answer == "overwhelm":
+#         print("You've successfully overwhelmed the guard and escaped the cell with the bunny")
+#     elif second_answer == "wait":
+#         print("Game over: Waiting didn't helped you by finding a solution. The bunny died!")
+#     else:
+#         print("Game over: You didn't choose one of the given answers!")
+# elif first_answer == "escape":
+#     print("Game over: You couldn't escape the soldier and died. Please try again")
+# else:
+#     print("Game over: You didn't choose one of the given answers!")
+
+# # Day 4
+
+# # Heads or Tails program
+# import random
+
+# random_number = random.randint(0, 1)
+# if random_number == 0:
+#     print("Tails")
+# else:
+#     print("Heads")
+
+# # Banker Roulette program
+# import random
+
+# names_string = input("Give me everybody's names, seperated by a comma: ")
+# names = names_string.split(", ")
+# #number_of_names = (len(names) -1)
+# random_number = random.randint(0, (len(names) -1))
+# print(f"{names[random_number]} is going to buy the meal today!")
+
+# # nested list
+# # fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+# # vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+# # dirty_dozen = [fruits, vegetables]
+
+# # Treasure Map Program
+# row1 = ["😉","😉","😉"]
+# row2 = ["😉","😉","😉"]
+# row3 = ["😉","😉","😉"]
+
+# map = [row1, row2, row3]
+# position = input("Where do you want to put the treasure? ")
+# column_number = (position[0])
+# row_number = (position[1])
+
+# map[int(row_number) -1][int(column_number) -1] = "x"
+# print(f"{row1}\n{row2}\n{row3}")
+
+# # Rock paper scissors game Program
+
+# import random
+# # Rock
+# rock = """
+#     _______
+# ---'   ____)
+#       (_____)
+#       (_____)
+#       (____)
+# ---.__(___)
+# """
+
+# # Paper
+# paper = """
+#      _______
+# ---'    ____)____
+#            ______)
+#           _______)
+#          _______)
+# ---.__________)
+# """
+
+# # Scissors
+# scissors = """
+#     _______
+# ---'   ____)____
+#           ______)
+#        __________)
+#       (____)
+# ---.__(___)
+# """
+
+# your_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+# computer_choice = random.randint(0,2)
+# # rock wins against scissors
+# # scissors win against paper
+# # paper wins against rock
+# if your_choice == 0:
+#     print(rock)
+#     if computer_choice == 2:
+#         print(f"Computer chose:\n {scissors}\nYou win!")
+#     elif computer_choice == 0:
+#         print(f"Computer chose:\n {rock}\nDraw!")
+#     else:
+#         print(f"Computer chose:\n {paper}\nYou lose!")
+# elif your_choice == 1:
+#     print(paper)
+#     if computer_choice == 0:
+#         print(f"Computer chose:\n {rock}\nYou win!")
+#     elif computer_choice == 1:
+#         print(f"Computer chose:\n {paper}\nDraw!")
+#     else:
+#         print(f"Computer chose:\n {scissors}\nYou lose!")
+# elif your_choice == 2:
+#     print(scissors)
+#     if computer_choice == 1:
+#         print(f"Computer chose:\n {paper}\nYou win!")
+#     elif computer_choice == 2:
+#         print(f"Computer chose:\n {scissors}\nDraw!")
+#     else:
+#         print(f"Computer chose:\n {rock}\nYou lose!")
+# else:
+#     print("Please input the right number")
+
+# # Day 5
+
+# # Average Height program
+# student_heights = input("Input a list of student heights ").split()
+# for n in range(0, len(student_heights)):
+#     student_heights[n] = int(student_heights[n])
+# print(student_heights)
+
+# number_of_students = 0
+# overall_height = 0
+# for height in student_heights:
+#     overall_height += height
+#     number_of_students += 1
+# average = overall_height / number_of_students
+# rounded_average = round(average)
+# print(f"The average is {rounded_average}")
+
+# # Highest Score program
+# student_scores = input("Input a list of student scores ").split()
+# for n in range(0, len(student_scores)):
+#     student_scores[n] = int(student_scores[n])
+# print(student_scores)
+
+# highest_score = 0
+# for score in student_scores:
+#     if score > highest_score:
+#         highest_score = score
+# print(highest_score)
+
+# # min() and max() Functions are the easy way
+
+# # For Loop with Range
+# for number in range(1, 10): # going from 1 - 9 (not including 10)
+#     print(number)
+
+# # Adding Events:
+
+# total = 0
+# for number in range(2, 101, 2):
+#     total += number
+# print(total)
+
+# # FizzBuzz program
+# for n in range(1, 101):
+#     if n % 3 == 0 and n % 5 == 0:
+#         print("FizzBuzz")
+#     elif n % 3 == 0:
+#         print("Fizz")
+#     elif n % 5 == 0:
+#         print("Buzz")
+#     else:
+#         print(n)
+
+# # Project Password Generator
+# import random
+# from typing import final
+
+# letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+# numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+# symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+# print("Welcome to the PyPassword Generator!")
+# lenght = int(input("How many letters would you like in your password?\n"))
+# nr_numbers = int(input("How many numbers would you like in your password?\n"))
+# nr_symbols = int(input("How many symbols would you like in your password?\n"))
+
+
+
+# # easy way
+
+# password = ""
+
+# for letter in range(0, lenght):
+#     random_letter = random.choice(letters)
+#     password += random_letter
+# for letter in range(0, nr_symbols):
+#     random_numbers = random.choice(numbers)
+#     password += random_numbers
+# for letter in range(0, nr_symbols):
+#     random_symbol = random.choice(symbols)
+#     password += random_symbol
+
+# print(password)
+
+# # hard way with more randomization
+
+# password_list = []
+
+# for letter in range(0, lenght):
+#     random_letter = random.choice(letters)
+#     password_list.append(random_letter)
+# for letter in range(0, nr_symbols):
+#     random_numbers = random.choice(numbers)
+#     password_list.append(random_numbers)
+# for letter in range(0, nr_symbols):
+#     random_symbol = random.choice(symbols)
+#     password_list.append(random_symbol)
+
+# random.shuffle(password_list) #shuffling the items in the list
+
+# print(password_list)
+
+# # changing the list into string
+# final_pw = ""
+# for char in password_list:
+#     final_pw += char
+# print(final_pw)
+
+
+# # Day 6
+
+# # Reeborgs World Hordle 1
+# def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# def one_round():
+#     move()
+#     turn_left()
+#     move()
+#     turn_right()
+#     move()
+#     turn_right()
+#     move()
+#     turn_left()
+
+# for round in range(0,6):
+#     one_round()
+
+# # Reeborgs World Hordle 2
+# while not at_goal():
+#     one_round()
+
+# # Reeborgs World Hordle 3
+# while not at_goal():
+#     if wall_in_front(): #removed move() from one_round() function
+#         turn_left()
+#         move()
+#         turn_right()
+#         move()
+#         turn_right()
+#         move()
+#         turn_left()
+#     elif front_is_clear():
+#         move()
+
+# # Reeborgs World Hordle 4
+# def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# def one_round():
+#     turn_left()
+#     while wall_on_right():
+#         move()
   
-    turn_right()
-    move()
-    turn_right()
+#     turn_right()
+#     move()
+#     turn_right()
     
-    while front_is_clear():
-        move()
-    turn_left()
+#     while front_is_clear():
+#         move()
+#     turn_left()
         
-while not at_goal():
-    if wall_in_front():
-        one_round()
-    else: 
-        move()
+# while not at_goal():
+#     if wall_in_front():
+#         one_round()
+#     else: 
+#         move()
 
-# Reeborgs World Maze
-while not at_goal():
-    if right_is_clear():
-        turn_right()
-        move()
-    elif front_is_clear():
-        move()
-    else:
-        turn_left()
+# # Reeborgs World Maze
+# while not at_goal():
+#     if right_is_clear():
+#         turn_right()
+#         move()
+#     elif front_is_clear():
+#         move()
+#     else:
+#         turn_left()
 
-# Day 7
+# # Day 7
 
-# hangman program
+# # hangman program
 
-import random
-import hangmanart
+# import random
+# import hangmanart
+# import hangmanwords
+
+
+# print(hangmanart.logo)
+# chosen_word = random.choice(hangmanwords.word_list)
+# word_lenght = len(chosen_word)
+# display = []
+
+# running = True
+# for char in chosen_word:
+#     display += "_"
+# print(f"{' '.join(display)}")
+
+# lives = 6
+# letter_list = []
+
+# while running:
+#     # print(f"Psst , the solution is {chosen_word}") # for debugging purpose
+
+
+#     guess = input("Guess a letter: ").lower()
+#     if guess in letter_list:
+#         print("You've already guessed that letter")
+#     else:
+#         letter_list.append(guess)
+#         for position in range(word_lenght):
+#             letter = chosen_word[position]
+#             if letter == guess:
+#                 display[position] = letter
+
+#         if guess not in chosen_word:
+#             lives -= 1
+#             print(f"You guessed letter {guess}, that's not in the word. You lose a life.")
+#             print(hangmanart.stages[lives])  
+#             if lives == 0:
+#                 running = False
+#                 print("You lose!")
+#         print(f"{' '.join(display)}")
+
+#         if not "_" in display:
+#             print("You won!")
+#             running = False
+
+# # Day 8
+
+# #function that allows for input
+
+# def greet(name):
+#     print(f"Hello {name}.")
+# greet("Karim")
+
+
+# #functions with more than 1 input
+
+# def greet_with(name, location):
+#     print(f"Hello {name}")
+#     print(f"What is it like in {location}")
+
+# #greet_with("Karim", "Barcelona")
+
+# greet_with(name = "Karim", location = "Barcelona")
+
+
+# # Area calculation program
+# test_h = int(input("Height of wall: "))
+# test_w = int(input("Width of wall: "))
+
+# def area_calc(height, width, coverage=5):
+#     number_of_cans = (height * width) / coverage
+#     print(round(number_of_cans))
+
+# area_calc(height=test_h,width=test_w)
+
+# # prime number program
+# n = int(input("Check this number: "))
+
+# def prime_checker(number):
+#     is_prime = True
+#     for num in range(2, number):
+#         if number % num == 0:
+#             is_prime = False
+#     if is_prime:
+#         print(f"The number {number} is a prime number")
+#     else:
+#         print(f"The number {number} is not a prime number")
+
+
+# prime_checker(number=n)
+
+
+
+# # Ceasar cipher program
+
 import hangmanwords
-
-
-print(hangmanart.logo)
-chosen_word = random.choice(hangmanwords.word_list)
-word_lenght = len(chosen_word)
-display = []
-
-running = True
-for char in chosen_word:
-    display += "_"
-print(f"{' '.join(display)}")
-
-lives = 6
-letter_list = []
-
-while running:
-    # print(f"Psst , the solution is {chosen_word}") # for debugging purpose
-
-
-    guess = input("Guess a letter: ").lower()
-    if guess in letter_list:
-        print("You've already guessed that letter")
-    else:
-        letter_list.append(guess)
-        for position in range(word_lenght):
-            letter = chosen_word[position]
-            if letter == guess:
-                display[position] = letter
-
-        if guess not in chosen_word:
-            lives -= 1
-            print(f"You guessed letter {guess}, that's not in the word. You lose a life.")
-            print(hangmanart.stages[lives])  
-            if lives == 0:
-                running = False
-                print("You lose!")
-        print(f"{' '.join(display)}")
-
-        if not "_" in display:
-            print("You won!")
-            running = False
-
-# Day 8
-
-#function that allows for input
-
-def greet(name):
-    print(f"Hello {name}.")
-greet("Karim")
-
-
-#functions with more than 1 input
-
-def greet_with(name, location):
-    print(f"Hello {name}")
-    print(f"What is it like in {location}")
-
-#greet_with("Karim", "Barcelona")
-
-greet_with(name = "Karim", location = "Barcelona")
-
-
-# Area calculation program
-test_h = int(input("Height of wall: "))
-test_w = int(input("Width of wall: "))
-
-def area_calc(height, width, coverage=5):
-    number_of_cans = (height * width) / coverage
-    print(round(number_of_cans))
-
-area_calc(height=test_h,width=test_w)
-
-# prime number program
-n = int(input("Check this number: "))
-
-def prime_checker(number):
-    is_prime = True
-    for num in range(2, number):
-        if number % num == 0:
-            is_prime = False
-    if is_prime:
-        print(f"The number {number} is a prime number")
-    else:
-        print(f"The number {number} is not a prime number")
-
-
-prime_checker(number=n)
-
-
-
-# Ceasar cipher program
-
-import hangmanwords
+import art
 
 alphabet = hangmanwords.alphabet
 
-direction = input("Type 'encode' to encrypt or type 'decode' to decrypt:\n")
-text = input("Type in your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+# def encrypt(plain_text, shift_amount):
+#     encoded_word = ""
+#     for letter in text:
+#         index = alphabet.index(letter)
+#         calc_index = index + shift
+#         if calc_index > 25:
+#             oversize = calc_index - 25
+#             new_letter = alphabet[oversize -1]
+#             encoded_word += new_letter
+#         else:
+#             new_letter = alphabet[calc_index]
+#             encoded_word += new_letter
+#     print(f"The encoded_word is {encoded_word}")
 
+# encrypt(plain_text=text, shift_amount=shift)
 
-def encrypt(plain_text, shift_amount):
-    encoded_word = ""
-    for letter in text:
-        index = alphabet.index(letter)
-        calc_index = index + shift
-        if calc_index > 25:
-            oversize = calc_index - 25
-            new_letter = alphabet[oversize -1]
-            encoded_word += new_letter
-        else:
-            new_letter = alphabet[calc_index]
-            encoded_word += new_letter
-    print(f"The encoded_word is {encoded_word}")
+# def decrypt(plain_text, shift_amount):
+#     decoded_word = ""
+#     for letter in text:
+#         index = alphabet.index(letter)
+#         calc_index = index - shift
+#         # if calc_index < 0:
+#         #     oversize = calc_index - 25
+#         #     new_letter = alphabet[oversize -1]
+#         #     decoded_word += new_letter
+#         new_letter = alphabet[calc_index]
+#         decoded_word += new_letter
+#     print(f"The decoded_word is {decoded_word}")
 
-encrypt(plain_text=text, shift_amount=shift)
-
-def decrypt(plain_text, shift_amount):
-    decoded_word = ""
-    for letter in text:
-        index = alphabet.index(letter)
-        calc_index = index - shift
-        # if calc_index < 0:
-        #     oversize = calc_index - 25
-        #     new_letter = alphabet[oversize -1]
-        #     decoded_word += new_letter
-        new_letter = alphabet[calc_index]
-        decoded_word += new_letter
-    print(f"The decoded_word is {decoded_word}")
-
-decrypt(plain_text=text, shift_amount=shift)
+# decrypt(plain_text=text, shift_amount=shift)
 
 def ceasar(direction, plaintext, shift_amount):
     encoded_word = ""
@@ -651,4 +647,17 @@ def ceasar(direction, plaintext, shift_amount):
             print("Please type in 'encode or 'decode!")
     print(f"The word is {encoded_word}")
 
-ceasar(direction, plaintext=text, shift_amount=shift)
+print(art.logo)
+running = True
+
+while running:
+    direction = input("Type 'encode' to encrypt or type 'decode' to decrypt:\n")
+    text = input("Type in your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    ceasar(direction, plaintext=text, shift_amount=shift)
+
+    question = input("You want to run again? Press 'yes or 'no'.\n")
+    if question == "no":
+        running = False
+
