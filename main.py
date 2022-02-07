@@ -909,11 +909,9 @@ def deal_card_for_you():
 def deal_card_for_computer():
     computers_hand.append(random.choice(cards))
 
+
 def calc_your_score(hand):
-    your_score = 0
-    for card in hand:
-        your_score += card
-    return your_score
+    return sum(hand)
 
 def calc_winner(user_score, enemy_score):
     if user_score > 21:
