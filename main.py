@@ -894,86 +894,134 @@
 
 # calculator()
 
-# Day 11
+# # Day 11
 
-#Blackjack program
+# #Blackjack program
 
-#imports:
-import art
+# #imports:
+# import art
+# import random
+
+# # functions:
+# def deal_card_for_you():
+#     your_hand.append(random.choice(cards))
+
+# def deal_card_for_computer():
+#     computers_hand.append(random.choice(cards))
+
+
+# def calc_your_score(hand):
+#     return sum(hand)
+
+# def calc_winner(user_score, enemy_score):
+#     if user_score > 21:
+#         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#         print("You went over. You lose!")
+#     elif user_score <= 21 and user_score > enemy_score:
+#         deal_card_for_computer()
+#         enemy_score = calc_your_score(hand=computers_hand)
+#         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#         if enemy_score > user_score and enemy_score < 21:
+#             print("You lose!")
+#         elif user_score == enemy_score:
+#             print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#             print("It's a draw!")
+#         else:
+#             print("You won!")
+#     elif enemy_score > 21:
+#         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#         print("Computer went over. You won!")
+#     elif user_score > enemy_score:
+#         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#         print("You won!")
+#     elif user_score < enemy_score:
+#         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#         print("You lose!")
+#     elif user_score == enemy_score:
+#         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+#         print("It's a draw!")
+
+# cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+# your_hand = []
+# computers_hand = []
+
+# def blackjack():
+#     running = True
+#     print(art.logo3)
+    
+#     while running:
+            
+#         game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+
+#         if game == "y":
+#             for i in range(2):
+#                 deal_card_for_you()
+#             deal_card_for_computer()
+#             user_score = calc_your_score(hand=your_hand)
+#             enemy_score = calc_your_score(hand=computers_hand)
+#             print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
+#             another_card = input("Type 'y' to get another card or 'n' to pass: ")
+#             if another_card == "y":
+#                 deal_card_for_you()
+#                 user_score = calc_your_score(hand=your_hand)
+#                 print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
+#                 deal_card_for_computer()
+#                 enemy_score = calc_your_score(hand=computers_hand)
+#                 calc_winner(user_score, enemy_score)
+#             else:
+#                 deal_card_for_computer()
+#                 enemy_score = calc_your_score(hand=computers_hand)
+#                 calc_winner(user_score, enemy_score)
+#         else:
+#             running = False
+
+
+# blackjack()
+
+# Day 12
+
+# Number guessing game
+
 import random
 
-# functions:
-def deal_card_for_you():
-    your_hand.append(random.choice(cards))
+running = True
 
-def deal_card_for_computer():
-    computers_hand.append(random.choice(cards))
-
-
-def calc_your_score(hand):
-    return sum(hand)
-
-def calc_winner(user_score, enemy_score):
-    if user_score > 21:
-        print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-        print("You went over. You lose!")
-    elif user_score <= 21 and user_score > enemy_score:
-        deal_card_for_computer()
-        enemy_score = calc_your_score(hand=computers_hand)
-        print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-        if enemy_score > user_score and enemy_score < 21:
-            print("You lose!")
-        elif user_score == enemy_score:
-            print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-            print("It's a draw!")
+while running:
+    game = input("Do you want to guess the Number??????????. Type 'yes' or 'no': ")
+    if game == "yes":
+        print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.")
+        random_number = random.randrange(1,101) #to include 100 we have to declare the range of 101
+        choose_difficulty = input("Choose a difficulty. Type 'easy' for 10 attempts or 'hard' for only 5 attempts: ")
+        if choose_difficulty == "easy":
+            attempts = 10
+            while attempts > 0:
+                guess = int(input("Make a Guess: "))
+                if guess > random_number:
+                    print("Too high.\nGuess again.")
+                    attempts -= 1
+                    print(f"You have {attempts} attempts remaining to guess the number.")
+                elif guess < random_number:
+                    print("Too low.\nGuess again.")
+                    attempts -= 1
+                    print(f"You have {attempts} attempts remaining to guess the number.")
+                else:
+                    print(f"You got it! The answer was {guess}")
+                    attempts = 0
         else:
-            print("You won!")
-    elif enemy_score > 21:
-        print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-        print("Computer went over. You won!")
-    elif user_score > enemy_score:
-        print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-        print("You won!")
-    elif user_score < enemy_score:
-        print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-        print("You lose!")
-    elif user_score == enemy_score:
-        print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
-        print("It's a draw!")
-
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-your_hand = []
-computers_hand = []
-
-def blackjack():
-    running = True
-    print(art.logo3)
-    
-    while running:
-            
-        game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
-
-        if game == "y":
-            for i in range(2):
-                deal_card_for_you()
-            deal_card_for_computer()
-            user_score = calc_your_score(hand=your_hand)
-            enemy_score = calc_your_score(hand=computers_hand)
-            print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
-            another_card = input("Type 'y' to get another card or 'n' to pass: ")
-            if another_card == "y":
-                deal_card_for_you()
-                user_score = calc_your_score(hand=your_hand)
-                print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
-                deal_card_for_computer()
-                enemy_score = calc_your_score(hand=computers_hand)
-                calc_winner(user_score, enemy_score)
-            else:
-                deal_card_for_computer()
-                enemy_score = calc_your_score(hand=computers_hand)
-                calc_winner(user_score, enemy_score)
-        else:
-            running = False
-
-
-blackjack()
+            choose_difficulty == "hard"
+            attempts = 5
+            while attempts > 0:
+                guess = int(input("Make a Guess: "))
+                if guess > random_number:
+                    print("Too high.\nGuess again.")
+                    attempts -= 1
+                    print(f"You have {attempts} attempts remaining to guess the number.")
+                elif guess < random_number:
+                    print("Too low.\nGuess again.")
+                    attempts -= 1
+                    print(f"You have {attempts} attempts remaining to guess the number.")
+                else:
+                    print(f"You got it! The answer was {guess}")
+                    attempts = 0
+    else:
+        running = False
