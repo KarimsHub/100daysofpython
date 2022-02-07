@@ -925,6 +925,9 @@ def calc_winner(user_score, enemy_score):
         print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
         if enemy_score > user_score and enemy_score < 21:
             print("You lose!")
+        elif user_score == enemy_score:
+            print(f"Your final hand: {your_hand}, final score: {user_score}\nComputer's final hand: {computers_hand}, final score: {enemy_score}")
+            print("It's a draw!")
         else:
             print("You won!")
     elif enemy_score > 21:
@@ -945,30 +948,34 @@ your_hand = []
 computers_hand = []
 
 def blackjack():
-    game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
-    print(art.logo3)
     running = True
+    print(art.logo3)
+    
+    while running:
+            
+        game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
-    if game == "y":
-        #while running:
-        for i in range(2):
-            deal_card_for_you()
-        deal_card_for_computer()
-        user_score = calc_your_score(hand=your_hand)
-        enemy_score = calc_your_score(hand=computers_hand)
-        print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
-        another_card = input("Type 'y' to get another card or 'n' to pass: ")
-        if another_card == "y":
-            deal_card_for_you()
+        if game == "y":
+            for i in range(2):
+                deal_card_for_you()
+            deal_card_for_computer()
             user_score = calc_your_score(hand=your_hand)
+            enemy_score = calc_your_score(hand=computers_hand)
             print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
-            deal_card_for_computer()
-            enemy_score = calc_your_score(hand=computers_hand)
-            calc_winner(user_score, enemy_score)
+            another_card = input("Type 'y' to get another card or 'n' to pass: ")
+            if another_card == "y":
+                deal_card_for_you()
+                user_score = calc_your_score(hand=your_hand)
+                print(f"Your cards: {your_hand}, current score {user_score}\nComputer's first card: {computers_hand[0]}")
+                deal_card_for_computer()
+                enemy_score = calc_your_score(hand=computers_hand)
+                calc_winner(user_score, enemy_score)
+            else:
+                deal_card_for_computer()
+                enemy_score = calc_your_score(hand=computers_hand)
+                calc_winner(user_score, enemy_score)
         else:
-            deal_card_for_computer()
-            enemy_score = calc_your_score(hand=computers_hand)
-            calc_winner(user_score, enemy_score)
+            running = False
 
 
 blackjack()
