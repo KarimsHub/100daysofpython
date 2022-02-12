@@ -978,50 +978,109 @@
 
 # blackjack()
 
-# Day 12
+# # Day 12
 
-# Number guessing game
+# # Number guessing game
 
+# import random
+
+# running = True
+
+# while running:
+#     game = input("Do you want to guess the Number??????????. Type 'yes' or 'no': ")
+#     if game == "yes":
+#         print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.")
+#         random_number = random.randrange(1,101) #to include 100 we have to declare the range of 101
+#         choose_difficulty = input("Choose a difficulty. Type 'easy' for 10 attempts or 'hard' for only 5 attempts: ")
+#         if choose_difficulty == "easy":
+#             attempts = 10
+#             while attempts > 0:
+#                 guess = int(input("Make a Guess: "))
+#                 if guess > random_number:
+#                     print("Too high.\nGuess again.")
+#                     attempts -= 1
+#                     print(f"You have {attempts} attempts remaining to guess the number.")
+#                 elif guess < random_number:
+#                     print("Too low.\nGuess again.")
+#                     attempts -= 1
+#                     print(f"You have {attempts} attempts remaining to guess the number.")
+#                 else:
+#                     print(f"You got it! The answer was {guess}")
+#                     attempts = 0
+#         else:
+#             choose_difficulty == "hard"
+#             attempts = 5
+#             while attempts > 0:
+#                 guess = int(input("Make a Guess: "))
+#                 if guess > random_number:
+#                     print("Too high.\nGuess again.")
+#                     attempts -= 1
+#                     print(f"You have {attempts} attempts remaining to guess the number.")
+#                 elif guess < random_number:
+#                     print("Too low.\nGuess again.")
+#                     attempts -= 1
+#                     print(f"You have {attempts} attempts remaining to guess the number.")
+#                 else:
+#                     print(f"You got it! The answer was {guess}")
+#                     attempts = 0
+#     else:
+#         running = False
+
+
+# Higher Lower program
+
+#print(f"You're right! Current score {score}")
+#print(f"Sorry, that's wrong. Final score {score}")
+from game_data import data
 import random
+# for key in random_pick:
+#     print(item)
+score = 0
 
-running = True
-
-while running:
-    game = input("Do you want to guess the Number??????????. Type 'yes' or 'no': ")
-    if game == "yes":
-        print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.")
-        random_number = random.randrange(1,101) #to include 100 we have to declare the range of 101
-        choose_difficulty = input("Choose a difficulty. Type 'easy' for 10 attempts or 'hard' for only 5 attempts: ")
-        if choose_difficulty == "easy":
-            attempts = 10
-            while attempts > 0:
-                guess = int(input("Make a Guess: "))
-                if guess > random_number:
-                    print("Too high.\nGuess again.")
-                    attempts -= 1
-                    print(f"You have {attempts} attempts remaining to guess the number.")
-                elif guess < random_number:
-                    print("Too low.\nGuess again.")
-                    attempts -= 1
-                    print(f"You have {attempts} attempts remaining to guess the number.")
-                else:
-                    print(f"You got it! The answer was {guess}")
-                    attempts = 0
+def check_guess(user_guess, random_pick, random_pick_2):
+    if user_guess == "A":
+        if random_pick["follower"] > random_pick_2["follower"]:
+            score += 1
+            print(f"You're right! Current score {score}")
         else:
-            choose_difficulty == "hard"
-            attempts = 5
-            while attempts > 0:
-                guess = int(input("Make a Guess: "))
-                if guess > random_number:
-                    print("Too high.\nGuess again.")
-                    attempts -= 1
-                    print(f"You have {attempts} attempts remaining to guess the number.")
-                elif guess < random_number:
-                    print("Too low.\nGuess again.")
-                    attempts -= 1
-                    print(f"You have {attempts} attempts remaining to guess the number.")
-                else:
-                    print(f"You got it! The answer was {guess}")
-                    attempts = 0
+            print(f"Sorry, that's wrong. Final score {score}")
+            running = False
+    elif user_guess == "B":
+        if random_pick["follower"] < random_pick_2["follower"]:
+            score += 1
+            print(f"You're right! Current score {score}")
+        else:
+            print(f"Sorry, that's wrong. Final score {score}")
+            running = False
     else:
+        print(f"Sorry, that's not 'A' or 'B' wrong. Final score {score}")
         running = False
+
+
+
+def game():
+    running = True
+    score = 0
+
+    while running:
+        random_pick = random.choice(data)
+        random_pick_2 = random.choice(data)
+        print(random_pick)
+        key_name = random_pick["name"]
+        key_description = random_pick["description"]
+        key_country = random_pick["country"]
+        key_follower = random_pick["follower"]
+
+        key_name2 = random_pick_2["name"]
+        key_description2 = random_pick_2["description"]
+        key_country2 = random_pick_2["country"]
+        key_follower2 = random_pick_2["follower"]
+
+        print(f"Compare A: {key_name}, {key_description}, {key_country}")
+        print(f"Against B: {key_name2}, {key_description2}, {key_country2}")
+
+        guess = input("Who has more followers? Type 'A' or 'B': ")
+
+        check_guess(random_pick, random_pick_2, user_guess=guess)
+
+game()
