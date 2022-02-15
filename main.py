@@ -1050,6 +1050,9 @@ def game():
 
     while running:
         trigger_new_offer()
+        if new_celebs[0] == offer[score]:
+            offer.pop(score)
+            offer.append(random.choice(data))
         print(logo4)
         print(f"Compare A: {new_celebs[0]['name']}, {new_celebs[0]['description']}, {new_celebs[0]['country']}")
         print(vs)
