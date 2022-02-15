@@ -1027,54 +1027,121 @@
 #         running = False
 
 
-# Higher Lower program
+# # Higher Lower program
 
-from game_data import data
-import random
-from art import logo4
-from art import vs
+# from game_data import data
+# import random
+# from art import logo4
+# from art import vs
 
-new_celebs = []
-offer = []
+# new_celebs = []
+# offer = []
 
-def trigger_new_celeb():
-    new_celebs.append(random.choice(data))
+# def trigger_new_celeb():
+#     new_celebs.append(random.choice(data))
 
-def trigger_new_offer():
-    offer.append(random.choice(data))
+# def trigger_new_offer():
+#     offer.append(random.choice(data))
 
-def game():
-    running = True
-    score = 0
-    trigger_new_celeb()
+# def game():
+#     running = True
+#     score = 0
+#     trigger_new_celeb()
 
-    while running:
-        trigger_new_offer()
-        if new_celebs[0] == offer[score]:
-            offer.pop(score)
-            offer.append(random.choice(data))
-        print(logo4)
-        print(f"Compare A: {new_celebs[0]['name']}, {new_celebs[0]['description']}, {new_celebs[0]['country']}")
-        print(vs)
-        print(f"Against B: {offer[score]['name']}, {offer[score]['description']}, {offer[score]['country']}")
-        guess = input("Who has more followers? Type 'A' or 'B': ")
-        if guess == "A":
-            if new_celebs[0]["follower_count"] > offer[score]["follower_count"]:
-                score += 1
-                print(f"You're right! Current score {score}")
-            else:
-                print(f"Sorry, that's not correct. Final score {score}")
-                running = False
-        elif guess == "B":
-            if offer[score]["follower_count"] > new_celebs[0]["follower_count"]:
-                new_celebs[0] = offer[score]
-                score += 1
-                print(f"You're right! Current score {score}")
-            else:
-                print(f"Sorry, that's not correct. Final score {score}")
-                running = False
-        else:
-            print(f"Sorry, that's not 'A' or 'B'. Final score {score}")
-            running = False
+#     while running:
+#         trigger_new_offer()
+#         if new_celebs[0] == offer[score]:
+#             offer.pop(score)
+#             offer.append(random.choice(data))
+#         print(logo4)
+#         print(f"Compare A: {new_celebs[0]['name']}, {new_celebs[0]['description']}, {new_celebs[0]['country']}")
+#         print(vs)
+#         print(f"Against B: {offer[score]['name']}, {offer[score]['description']}, {offer[score]['country']}")
+#         guess = input("Who has more followers? Type 'A' or 'B': ")
+#         if guess == "A":
+#             if new_celebs[0]["follower_count"] > offer[score]["follower_count"]:
+#                 score += 1
+#                 print(f"You're right! Current score {score}")
+#             else:
+#                 print(f"Sorry, that's not correct. Final score {score}")
+#                 running = False
+#         elif guess == "B":
+#             if offer[score]["follower_count"] > new_celebs[0]["follower_count"]:
+#                 new_celebs[0] = offer[score]
+#                 score += 1
+#                 print(f"You're right! Current score {score}")
+#             else:
+#                 print(f"Sorry, that's not correct. Final score {score}")
+#                 running = False
+#         else:
+#             print(f"Sorry, that's not 'A' or 'B'. Final score {score}")
+#             running = False
 
-game()
+# game()
+
+# Day 15 Coffee Machine Program
+
+#print report: how much resources left 
+#what would you like? (espresso/latte/cappucino):
+#if type report: water:, milk, coffee, money: are printed 
+# after deciding which coffee, ask please insert coins \n how many quarters?, how many dimes?, how many nickles, how many pennies?
+#Here is (number) in change
+#Here is your latte. Enjoy!
+#if not enough resources: "Sorry there is not enough water"
+#if not enough money: "Sorry that's not enough money. Money refunded"
+#sum up the amount of coins and reduce by the cost of coffee
+
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+# starting resources in the machine, also included money
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+    "money": 0,
+}
+
+COIN_VALUES = {
+    "quarter": 0.25,
+    "dime": 0.10,
+    "nickel": 0.05,
+    "penny": 0.01,
+}
+
+pick_coffee = input("What would you like? (espresso/latte/cappucino): ")
+coffee = MENU[pick_coffee]
+
+# print("Please insert coins")
+# number_of_quarters = int(input("How many quartes?: "))
+# number_of_dimes = int(input("How many dimes?: "))
+# number_of_nickel = int(input("How many nickle?: "))
+# number_of_pennies = int(input("How many pennies?: "))
+
+# amount_quarter = number_of_quarter * COIN_VALUES["quarter"]
+# amount_dimes = number_of_quarter * COIN_VALUES["quarter"]
+# amount_nickel = number_of_quarter * COIN_VALUES["quarter"]
+# amount_pennies = number_of_quarter * COIN_VALUES["quarter"]
