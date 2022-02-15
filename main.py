@@ -1029,82 +1029,49 @@
 
 # Higher Lower program
 
-#print(f"You're right! Current score {score}")
-#print(f"Sorry, that's wrong. Final score {score}")
 from game_data import data
 import random
 from art import logo4
 from art import vs
-# for key in random_pick:
-#     print(item)
-score = 0
 
-# def game():
-#     running = True
-#     score = 0
+new_celebs = []
+offer = []
 
-#     while running:
-#         random_pick = random.choice(data)
-#         random_pick_2 = random.choice(data)
-#         key_name = random_pick["name"]
-#         key_description = random_pick["description"]
-#         key_country = random_pick["country"]
-#         key_follower = random_pick["follower"]
-
-#         key_name2 = random_pick_2["name"]
-#         key_description2 = random_pick_2["description"]
-#         key_country2 = random_pick_2["country"]
-#         key_follower2 = random_pick_2["follower"]
-
-#         print(logo4)
-#         print(f"Compare A: {key_name}, {key_description}, {key_country}")
-#         print(vs)
-#         print(f"Against B: {key_name2}, {key_description2}, {key_country2}")
-
-#         guess = input("Who has more followers? Type 'A' or 'B': ")
-
-#         if guess == "A":
-#             if random_pick["follower"] > random_pick_2["follower"]:
-#                 score += 1
-#                 print(f"You're right! Current score {score}")
-#             else:
-#                 print(f"Sorry, that's wrong. Final score {score}")
-#                 running = False
-#         elif guess == "B":
-#             if random_pick["follower"] < random_pick_2["follower"]:
-#                 score += 1
-#                 print(f"You're right! Current score {score}")
-#             else:
-#                 print(f"Sorry, that's wrong. Final score {score}")
-#                 running = False
-#         else:
-#             print(f"Sorry, that's not 'A' or 'B' wrong. Final score {score}")
-#             running = False
-
-# game()
 def trigger_new_celeb():
     new_celebs.append(random.choice(data))
 
+def trigger_new_offer():
+    offer.append(random.choice(data))
 
-new_celebs = []
-your_choice = dict()
-for _ in range(2):
+def game():
+    running = True
+    score = 0
     trigger_new_celeb()
 
-print(new_celebs[0]["name"])
-print(f"Compare A: {new_celebs[0]['name']}")
-print(logo4)
-print(f"Compare A: {new_celebs[0]['name']}, {new_celebs[0]['description']}, {new_celebs[0]['country']}")
-print(vs)
-print(f"Against B: {new_celebs[1]['name']}, {new_celebs[1]['description']}, {new_celebs[1]['country']}")
-guess = input("Who has more followers? Type 'A' or 'B': ")
-if guess == "A":
-    your_choice = new_celebs[0]
-    if new_celebs[0]["follower"] > new_celebs[1]["follower"]:
-        score += 1
-        print(f"You're right! Current score {score}")
-elif guess == "B":
-    your_choice = new_celebs[1]
-    if new_celebs[0]["follower"] > new_celebs[1]["follower"]:
-        score += 1
-        print(f"You're right! Current score {score}")
+    while running:
+        trigger_new_offer()
+        print(logo4)
+        print(f"Compare A: {new_celebs[0]['name']}, {new_celebs[0]['description']}, {new_celebs[0]['country']}")
+        print(vs)
+        print(f"Against B: {offer[score]['name']}, {offer[score]['description']}, {offer[score]['country']}")
+        guess = input("Who has more followers? Type 'A' or 'B': ")
+        if guess == "A":
+            if new_celebs[0]["follower_count"] > offer[score]["follower_count"]:
+                score += 1
+                print(f"You're right! Current score {score}")
+            else:
+                print(f"Sorry, that's not correct. Final score {score}")
+                running = False
+        elif guess == "B":
+            if offer[score]["follower_count"] > new_celebs[0]["follower_count"]:
+                new_celebs[0] = offer[score]
+                score += 1
+                print(f"You're right! Current score {score}")
+            else:
+                print(f"Sorry, that's not correct. Final score {score}")
+                running = False
+        else:
+            print(f"Sorry, that's not 'A' or 'B'. Final score {score}")
+            running = False
+
+game()
