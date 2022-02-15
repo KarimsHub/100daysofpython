@@ -1033,30 +1033,11 @@
 #print(f"Sorry, that's wrong. Final score {score}")
 from game_data import data
 import random
+from art import logo4
+from art import vs
 # for key in random_pick:
 #     print(item)
 score = 0
-
-def check_guess(user_guess, random_pick, random_pick_2):
-    if user_guess == "A":
-        if random_pick["follower"] > random_pick_2["follower"]:
-            score += 1
-            print(f"You're right! Current score {score}")
-        else:
-            print(f"Sorry, that's wrong. Final score {score}")
-            running = False
-    elif user_guess == "B":
-        if random_pick["follower"] < random_pick_2["follower"]:
-            score += 1
-            print(f"You're right! Current score {score}")
-        else:
-            print(f"Sorry, that's wrong. Final score {score}")
-            running = False
-    else:
-        print(f"Sorry, that's not 'A' or 'B' wrong. Final score {score}")
-        running = False
-
-
 
 def game():
     running = True
@@ -1065,7 +1046,6 @@ def game():
     while running:
         random_pick = random.choice(data)
         random_pick_2 = random.choice(data)
-        print(random_pick)
         key_name = random_pick["name"]
         key_description = random_pick["description"]
         key_country = random_pick["country"]
@@ -1076,11 +1056,30 @@ def game():
         key_country2 = random_pick_2["country"]
         key_follower2 = random_pick_2["follower"]
 
+        print(logo4)
         print(f"Compare A: {key_name}, {key_description}, {key_country}")
+        print(vs)
         print(f"Against B: {key_name2}, {key_description2}, {key_country2}")
 
         guess = input("Who has more followers? Type 'A' or 'B': ")
 
-        check_guess(random_pick, random_pick_2, user_guess=guess)
+        if guess == "A":
+            if random_pick["follower"] > random_pick_2["follower"]:
+                score += 1
+                print(f"You're right! Current score {score}")
+            else:
+                print(f"Sorry, that's wrong. Final score {score}")
+                running = False
+        elif guess == "B":
+            if random_pick["follower"] < random_pick_2["follower"]:
+                score += 1
+                print(f"You're right! Current score {score}")
+            else:
+                print(f"Sorry, that's wrong. Final score {score}")
+                running = False
+        else:
+            print(f"Sorry, that's not 'A' or 'B' wrong. Final score {score}")
+            running = False
 
 game()
+
