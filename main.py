@@ -1081,16 +1081,6 @@
 
 # Day 15 Coffee Machine Program
 
-#print report: how much resources left 
-#what would you like? (espresso/latte/cappucino):
-#if type report: water:, milk, coffee, money: are printed 
-# after deciding which coffee, ask please insert coins \n how many quarters?, how many dimes?, how many nickles, how many pennies?
-#Here is (number) in change
-#Here is your latte. Enjoy!
-#if not enough resources: "Sorry there is not enough water"
-#if not enough money: "Sorry that's not enough money. Money refunded"
-#sum up the amount of coins and reduce by the cost of coffee
-
 MENU = {
     "espresso": {
         "ingredients": {
@@ -1131,25 +1121,39 @@ COIN_VALUES = {
     "nickel": 0.05,
     "penny": 0.01,
 }
-
+#get the input by the user which coffee he likes to get as variable
 pick_coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
 coffee = MENU[pick_coffee]
-print(coffee["cost"])
+coffee_ingredients = coffee["ingredients"]
+#print function for the actual resources
+if pick_coffee == "report":
+    for key in resources:
+        print(f"{key}: {resources[key]}")
 
+#get the input of the amount of coins the user wants to put into the machine
 print("Please insert coins")
 number_of_quarters = int(input("How many quarters?: "))
 number_of_dimes = int(input("How many dimes?: "))
 number_of_nickel = int(input("How many nickle?: "))
 number_of_pennies = int(input("How many pennies?: "))
 
+#add the number of coins together and reduce the amount of the coffee price
 amount_quarter = number_of_quarters * COIN_VALUES["quarter"]
-print(amount_quarter)
 amount_dimes = number_of_dimes * COIN_VALUES["dime"]
-print(amount_dimes)
 amount_nickel = number_of_nickel * COIN_VALUES["nickel"]
-print(amount_nickel)
 amount_pennies = number_of_pennies * COIN_VALUES["penny"]
-print(amount_pennies)
-payback_money = (amount_quarter + amount_dimes + amount_nickel + amount_pennies) - coffee["cost"]
-print(f"Here is {payback_money} in change")
+payback_money = round((amount_quarter + amount_dimes + amount_nickel + amount_pennies) - coffee["cost"], 2)
+if payback_money < 0:
+    print("Sorry that's not enough money. Money refunded.")
+print(f"Here is {payback_money}€ in change")
+
+#resource suffcient check
+for key in resources:
+    for other_key in coffee_ingredients:
+        if key == other_key:
+            resources[key] -= coffee_ingredients[other_key]
+if resources[key] < 0:
+    print(f"Sorry there is not enough {resource[key]}")
+resources["money"] += coffee["cost"]
 print(f"Here is your {pick_coffee}. Enjoy!")
+
