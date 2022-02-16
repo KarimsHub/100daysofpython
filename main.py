@@ -1132,16 +1132,24 @@ COIN_VALUES = {
     "penny": 0.01,
 }
 
-pick_coffee = input("What would you like? (espresso/latte/cappucino): ")
+pick_coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
 coffee = MENU[pick_coffee]
+print(coffee["cost"])
 
-# print("Please insert coins")
-# number_of_quarters = int(input("How many quartes?: "))
-# number_of_dimes = int(input("How many dimes?: "))
-# number_of_nickel = int(input("How many nickle?: "))
-# number_of_pennies = int(input("How many pennies?: "))
+print("Please insert coins")
+number_of_quarters = int(input("How many quarters?: "))
+number_of_dimes = int(input("How many dimes?: "))
+number_of_nickel = int(input("How many nickle?: "))
+number_of_pennies = int(input("How many pennies?: "))
 
-# amount_quarter = number_of_quarter * COIN_VALUES["quarter"]
-# amount_dimes = number_of_quarter * COIN_VALUES["quarter"]
-# amount_nickel = number_of_quarter * COIN_VALUES["quarter"]
-# amount_pennies = number_of_quarter * COIN_VALUES["quarter"]
+amount_quarter = number_of_quarters * COIN_VALUES["quarter"]
+print(amount_quarter)
+amount_dimes = number_of_dimes * COIN_VALUES["dime"]
+print(amount_dimes)
+amount_nickel = number_of_nickel * COIN_VALUES["nickel"]
+print(amount_nickel)
+amount_pennies = number_of_pennies * COIN_VALUES["penny"]
+print(amount_pennies)
+payback_money = (amount_quarter + amount_dimes + amount_nickel + amount_pennies) - coffee["cost"]
+print(f"Here is {payback_money} in change")
+print(f"Here is your {pick_coffee}. Enjoy!")
