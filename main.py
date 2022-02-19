@@ -1079,121 +1079,144 @@
 
 # game()
 
-# Day 15 Coffee Machine Program
+# # Day 15 Coffee Machine Program
 
-MENU = {
-    "espresso": {
-        "ingredients": {
-            "water": 50,
-            "coffee": 18,
-        },
-        "cost": 1.5,
-    },
-    "latte": {
-        "ingredients": {
-            "water": 200,
-            "milk": 150,
-            "coffee": 24,
-        },
-        "cost": 2.5,
-    },
-    "cappuccino": {
-        "ingredients": {
-            "water": 250,
-            "milk": 100,
-            "coffee": 24,
-        },
-        "cost": 3.0,
-    }
-}
+# MENU = {
+#     "espresso": {
+#         "ingredients": {
+#             "water": 50,
+#             "coffee": 18,
+#         },
+#         "cost": 1.5,
+#     },
+#     "latte": {
+#         "ingredients": {
+#             "water": 200,
+#             "milk": 150,
+#             "coffee": 24,
+#         },
+#         "cost": 2.5,
+#     },
+#     "cappuccino": {
+#         "ingredients": {
+#             "water": 250,
+#             "milk": 100,
+#             "coffee": 24,
+#         },
+#         "cost": 3.0,
+#     }
+# }
 
-# starting resources in the machine, also included money
-resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
-    "money": 0,
-}
+# # starting resources in the machine, also included money
+# resources = {
+#     "water": 300,
+#     "milk": 200,
+#     "coffee": 100,
+#     "money": 0,
+# }
 
-COIN_VALUES = {
-    "quarter": 0.25,
-    "dime": 0.10,
-    "nickel": 0.05,
-    "penny": 0.01,
-}
-def payment(number_of_quarters, number_of_dimes, number_of_nickel, number_of_pennies, coffee): #add the number of coins together and reduce the amount of the coffee price
-        amount_quarter = number_of_quarters * COIN_VALUES["quarter"]
-        amount_dimes = number_of_dimes * COIN_VALUES["dime"]
-        amount_nickel = number_of_nickel * COIN_VALUES["nickel"]
-        amount_pennies = number_of_pennies * COIN_VALUES["penny"]
-        payback_money = round((amount_quarter + amount_dimes + amount_nickel + amount_pennies) - coffee["cost"], 2)
-        if payback_money < 0:
-            print("Sorry that's not enough money. Money refunded.")
-            coffee_machine()
-        else:
-            return payback_money
+# COIN_VALUES = {
+#     "quarter": 0.25,
+#     "dime": 0.10,
+#     "nickel": 0.05,
+#     "penny": 0.01,
+# }
+# def payment(number_of_quarters, number_of_dimes, number_of_nickel, number_of_pennies, coffee): #add the number of coins together and reduce the amount of the coffee price
+#         amount_quarter = number_of_quarters * COIN_VALUES["quarter"]
+#         amount_dimes = number_of_dimes * COIN_VALUES["dime"]
+#         amount_nickel = number_of_nickel * COIN_VALUES["nickel"]
+#         amount_pennies = number_of_pennies * COIN_VALUES["penny"]
+#         payback_money = round((amount_quarter + amount_dimes + amount_nickel + amount_pennies) - coffee["cost"], 2)
+#         if payback_money < 0:
+#             print("Sorry that's not enough money. Money refunded.")
+#             coffee_machine()
+#         else:
+#             return payback_money
 
-def suffcient(resources, coffee_ingredients): #resource suffcient check
-    for key in resources:
-        for other_key in coffee_ingredients:
-            if key == other_key:
-                resources[key] -= coffee_ingredients[other_key]
-                if resources[key] < 0:
-                    print(f"Sorry there is not enough {key}")
-                    coffee_machine()
+# def suffcient(resources, coffee_ingredients): #resource suffcient check
+#     for key in resources:
+#         for other_key in coffee_ingredients:
+#             if key == other_key:
+#                 resources[key] -= coffee_ingredients[other_key]
+#                 if resources[key] < 0:
+#                     print(f"Sorry there is not enough {key}")
+#                     coffee_machine()
 
 
-def coffee_machine():
+# def coffee_machine():
     
-    running = True
+#     running = True
     
-    while running:
-        #get the input by the user which coffee he likes to get as variable
-        pick_coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
-        #print function for the actual resources
-        if pick_coffee == "off":
-            running = False
-        elif pick_coffee == "report":
-            for key in resources:
-                print(f"{key}: {resources[key]}")
-            coffee_machine()
-        else:
-            coffee = MENU[pick_coffee]
-            coffee_ingredients = coffee["ingredients"]
-            #get the input of the amount of coins the user wants to put into the machine
-            print("Please insert coins")
-            number_of_quarters = int(input("How many quarters?: "))
-            number_of_dimes = int(input("How many dimes?: "))
-            number_of_nickel = int(input("How many nickle?: "))
-            number_of_pennies = int(input("How many pennies?: "))
-            payed = payment(number_of_quarters, number_of_dimes, number_of_nickel, number_of_pennies,coffee)
-            suffcient(resources, coffee_ingredients)
-            resources["money"] += coffee["cost"]
-            print(f"Here is {payed}€ in change")
-            print(f"Here is your {pick_coffee}. Enjoy!")
+#     while running:
+#         #get the input by the user which coffee he likes to get as variable
+#         pick_coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
+#         #print function for the actual resources
+#         if pick_coffee == "off":
+#             running = False
+#         elif pick_coffee == "report":
+#             for key in resources:
+#                 print(f"{key}: {resources[key]}")
+#             coffee_machine()
+#         else:
+#             coffee = MENU[pick_coffee]
+#             coffee_ingredients = coffee["ingredients"]
+#             #get the input of the amount of coins the user wants to put into the machine
+#             print("Please insert coins")
+#             number_of_quarters = int(input("How many quarters?: "))
+#             number_of_dimes = int(input("How many dimes?: "))
+#             number_of_nickel = int(input("How many nickle?: "))
+#             number_of_pennies = int(input("How many pennies?: "))
+#             payed = payment(number_of_quarters, number_of_dimes, number_of_nickel, number_of_pennies,coffee)
+#             suffcient(resources, coffee_ingredients)
+#             resources["money"] += coffee["cost"]
+#             print(f"Here is {payed}€ in change")
+#             print(f"Here is your {pick_coffee}. Enjoy!")
 
+# coffee_machine()
 
-        # #add the number of coins together and reduce the amount of the coffee price
-        # amount_quarter = number_of_quarters * COIN_VALUES["quarter"]
-        # amount_dimes = number_of_dimes * COIN_VALUES["dime"]
-        # amount_nickel = number_of_nickel * COIN_VALUES["nickel"]
-        # amount_pennies = number_of_pennies * COIN_VALUES["penny"]
-        # payback_money = round((amount_quarter + amount_dimes + amount_nickel + amount_pennies) - coffee["cost"], 2)
-        # if payback_money < 0:
-        #     print("Sorry that's not enough money. Money refunded.")
-        #     coffee_machine()
+# Day 16
 
-        # #resource suffcient check
-        # for key in resources:
-        #     for other_key in coffee_ingredients:
-        #         if key == other_key:
-        #             resources[key] -= coffee_ingredients[other_key]
-        #     if resources[key] < 0:
-        #         print(f"Sorry there is not enough {key}")
-        #         coffee_machine()
-        
-        # resources["money"] += coffee["cost"]
-        # print(f"Here is {payback_money}€ in change")
-        # print(f"Here is your {pick_coffee}. Enjoy!")
+#import turtle
+# from turtle import Turtle, Screen
 
-coffee_machine()
+# timmy = Turtle() #fetched turtle class
+# timmy.shape("turtle")
+# timmy.color("green")
+# timmy.forward(100)
+
+# my_screen = Screen() #defining object (my_screen) of a blueprint, class (Screen)
+# print(my_screen.canvheight) #object (myscreen) + attribute/variable (canvheight)
+# my_screen.exitonclick() # object (myscreen) + method/function (exitonclick)
+
+# from prettytable import PrettyTable 
+
+# table = PrettyTable() #created new object
+# table.add_column("Pokemon Name", ["Pikachu","Schiggi","Glumanda"]) #calling the add_column method
+# table.add_column("Type", ["Elektro","Wasser","Feuer"])
+# table.align = "l" #changed the alignment to left with changing the aatribute
+# print(table)
+
+# good to know: attributes are changeable like variables, methods are not. You can also print the attributes of the object
+
+from menu import Menu, MenuItem
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+
+new_menu = Menu()
+coffee_maker = CoffeeMaker()
+money_machine = MoneyMachine()
+
+running = True
+
+while running:
+    options = new_menu.get_items()
+    choice = input(f"What would you like? ({options}): ")
+    if choice == "off":
+        running = False
+    elif choice == "report":
+        coffee_maker.report() #report method automatically prints the resources
+        money_machine.report() #report method automatically prints the amount of money
+    else:
+        user_choice = new_menu.find_drink(choice)
+        if coffee_maker.is_resource_sufficient(user_choice) and money_machine.make_payment(user_choice.cost):
+            coffee_maker.make_coffee(user_choice)
