@@ -1198,25 +1198,55 @@
 
 # good to know: attributes are changeable like variables, methods are not. You can also print the attributes of the object
 
-from menu import Menu, MenuItem
-from coffee_maker import CoffeeMaker
-from money_machine import MoneyMachine
+# from menu import Menu, MenuItem
+# from coffee_maker import CoffeeMaker
+# from money_machine import MoneyMachine
 
-new_menu = Menu()
-coffee_maker = CoffeeMaker()
-money_machine = MoneyMachine()
+# new_menu = Menu()
+# coffee_maker = CoffeeMaker()
+# money_machine = MoneyMachine()
 
-running = True
+# running = True
 
-while running:
-    options = new_menu.get_items()
-    choice = input(f"What would you like? ({options}): ")
-    if choice == "off":
-        running = False
-    elif choice == "report":
-        coffee_maker.report() #report method automatically prints the resources
-        money_machine.report() #report method automatically prints the amount of money
-    else:
-        user_choice = new_menu.find_drink(choice)
-        if coffee_maker.is_resource_sufficient(user_choice) and money_machine.make_payment(user_choice.cost):
-            coffee_maker.make_coffee(user_choice)
+# while running:
+#     options = new_menu.get_items()
+#     choice = input(f"What would you like? ({options}): ")
+#     if choice == "off":
+#         running = False
+#     elif choice == "report":
+#         coffee_maker.report() #report method automatically prints the resources
+#         money_machine.report() #report method automatically prints the amount of money
+#     else:
+#         user_choice = new_menu.find_drink(choice)
+#         if coffee_maker.is_resource_sufficient(user_choice) and money_machine.make_payment(user_choice.cost):
+#             coffee_maker.make_coffee(user_choice)
+
+# Day 17
+
+# class User:
+#     def __init__(self, user_id, username):
+#         self.id = user_id
+#         self.username = username
+#         self.followers = 0 # default value of zero
+#         self.following = 0
+#         print("new user being created...") #everytime when we initialize the class we will also initialize the print statement
+
+#     def follow(self, user): #user we decide to follow)
+#         user.followers += 1
+#         self.following += 1
+
+# # Creating Attributes:
+# user_1 = User("001", "Karim")
+# user_2 = User("002", "Dennis")
+# user_1.follow(user_2)
+# print(user_1.following)
+
+
+# print(user_1.id)
+# print(user_2.id)
+# print(user_2.followers)
+
+# class Question:
+#     def __init__(self, text, answer):
+#         self.text = text
+#         self.answer = answer
