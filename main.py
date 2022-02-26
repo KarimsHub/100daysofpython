@@ -1250,3 +1250,34 @@
 #     def __init__(self, text, answer):
 #         self.text = text
 #         self.answer = answer
+
+# Day 18
+
+from turtle import Turtle, Screen
+import random
+
+timmy_the_turtle = Turtle()
+timmy_the_turtle.shape("turtle")
+timmy_the_turtle.color("green")
+#draw a square code:
+for i in range(10):
+    timmy_the_turtle.penup()
+    timmy_the_turtle.forward(10)
+    timmy_the_turtle.pendown()
+    timmy_the_turtle.forward(10)
+
+#draw different shapes code:
+colors = ["black", "green", "red", "blue", "yellow", "purple"]
+random_color = random.choice(colors)
+num_sides = 3
+
+while num_sides < 9:
+    timmy_the_turtle.color(random_color)
+    for _ in range(num_sides):
+        angle = 360/num_sides
+        timmy_the_turtle.forward(100)
+        timmy_the_turtle.right(angle)
+    num_sides += 1
+
+screen = Screen()
+screen.exitonclick()
